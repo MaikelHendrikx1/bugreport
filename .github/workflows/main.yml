@@ -26,7 +26,6 @@ jobs:
   publish: 
     needs: build_and_test
     runs-on: ubuntu-latest
-    name: publish bugger page
     
     steps:
       -
