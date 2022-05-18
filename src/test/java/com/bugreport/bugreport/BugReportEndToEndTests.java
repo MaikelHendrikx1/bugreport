@@ -39,11 +39,11 @@ public class BugReportEndToEndTests {
     private BugReportRepository bugReportRepository;
 
     private List<BugReport> initialEntities = List.of(
-            new BugReport("Alpha report", "Test report 1 description", 1),
-            new BugReport("Report alpha", "Test report 2 description", 1),
-            new BugReport("Bravo report", "Test report 3 description", 1),
-            new BugReport("Alpha report bravo", "Test report 4 description", 2),
-            new BugReport("bravo", "Test report 5 description", 3));
+            new BugReport("Alpha report", "Test report 1 description", 1, 1),
+            new BugReport("Report alpha", "Test report 2 description", 1, 1),
+            new BugReport("Bravo report", "Test report 3 description", 1, 1),
+            new BugReport("Alpha report bravo", "Test report 4 description", 2, 1),
+            new BugReport("bravo", "Test report 5 description", 3, 1));
 
     @BeforeEach
     public void InitializeEntities() {
@@ -90,7 +90,7 @@ public class BugReportEndToEndTests {
 
     @Test
     public void AddShouldReturnNewlyCreatedRecord() throws Exception {
-        BugReport newBugReport = new BugReport("Test bug report", "test description", 1);
+        BugReport newBugReport = new BugReport("Test bug report", "test description", 1, 1);
 
         MvcResult result = this.mockMvc.perform(post("/BugReports/add")
                 .content(objectMapper.writeValueAsString(newBugReport))

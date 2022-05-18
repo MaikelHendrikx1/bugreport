@@ -17,12 +17,15 @@ public class BugReport {
 
     public String description;
 
+    public Integer userId;
+
     public BugReport() {
     }
     
-    public BugReport(String title, String description, Integer pageId) {
+    public BugReport(String title, String description, Integer pageId, Integer userId) {
         this.title = title;
         this.description = description;
         this.pageId = pageId;
+        this.userId = userId;
     }
 }
