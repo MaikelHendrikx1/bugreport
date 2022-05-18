@@ -19,7 +19,6 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build and test
-      working-directory: ./bugreport
       run: | 
         mvn -B package --file pom.xml  
        
