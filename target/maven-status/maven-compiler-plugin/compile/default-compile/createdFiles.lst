@@ -1,6 +1,0 @@
-com\bugreport\bugreport\BugReportController.class
-com\bugreport\Swagger\SpringFoxConfig.class
-com\bugreport\bugreport\BugReportRepository.class
-com\bugreport\bugreport\BugReportService.class
-com\bugreport\bugreport\BugreportApplication.class
-com\bugreport\bugreport\BugReport.class
