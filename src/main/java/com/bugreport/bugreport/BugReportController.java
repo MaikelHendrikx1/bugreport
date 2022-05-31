@@ -1,5 +1,8 @@
 package com.bugreport.bugreport;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -21,22 +24,30 @@ public class BugReportController {
     BugReportService bugReportService;
 
     @PostMapping(path = "/add", consumes = "application/json")
-    public @ResponseBody BugReport addNewBugReport(@RequestBody BugReport br) {
-        return bugReportService.addNewBugReport(br);
+    public @ResponseBody BugReportDto addNewBugReport(@RequestBody BugReportDto br) {
+        return new BugReportDto(bugReportService.addNewBugReport(new BugReport(br)));
     }
 
     @GetMapping(path = "/all")
-    public @ResponseBody Iterable<BugReport> getAllBugReports(
+    public @ResponseBody Iterable<BugReportDto> getAllBugReports(
             @RequestParam(required = false) Integer pageId,
             @RequestParam(required = false) String filter) {
-        return bugReportService.GetAllBugReports(pageId, filter);      
+
+        Iterable<BugReport> bugReports = bugReportService.GetAllBugReports(pageId, filter);
+        
+        List<BugReportDto> bugReportDtos = new ArrayList<BugReportDto>();
+        for (BugReport bugReport : bugReports) {
+            bugReportDtos.add(new BugReportDto(bugReport));
+        }
+
+        return bugReportDtos;
     }
 
     @GetMapping(path = "/get")
-    public @ResponseBody BugReport getBugReportbyId(@RequestParam Integer id) {
+    public @ResponseBody BugReportDto getBugReportbyId(@RequestParam Integer id) {
         BugReport result = bugReportService.getBugReportbyId(id);
         if (result != null) {
-            return result;
+            return new BugReportDto(result);
         }
         else {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Found no bug report with id " + id);

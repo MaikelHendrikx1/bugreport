@@ -20,7 +20,7 @@ public class BugReportPublicController {
     BugReportService bugReportService;
 
     @PostMapping(path = "/add", consumes = "application/json")
-    public @ResponseBody BugReport addNewBugReport(@RequestBody BugReport br, @RequestParam String key) {
+    public @ResponseBody BugReportDto addNewBugReport(@RequestBody BugReportDto br, @RequestParam String key) {
 
         // create a client connected to the Buggerpage microservice
         WebClient client = WebClient.create("http://localhost:6001");
@@ -33,7 +33,7 @@ public class BugReportPublicController {
                 .getBody();
 
         if (keyVerified) {
-            return bugReportService.addNewBugReport(br);
+            return new BugReportDto(bugReportService.addNewBugReport(new BugReport(br)));
         }
         else {
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Supplied the incorrect key.");

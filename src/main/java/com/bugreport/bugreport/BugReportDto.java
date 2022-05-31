@@ -1,14 +1,6 @@
 package com.bugreport.bugreport;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-@Entity
-public class BugReport {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+public class BugReportDto {
     public Integer id;
 
     public Integer pageId;
@@ -19,17 +11,17 @@ public class BugReport {
 
     public Integer userId;
 
-    public BugReport() {
+    public BugReportDto() {
     }
-    
-    public BugReport(String title, String description, Integer pageId, Integer userId) {
+
+    public BugReportDto(String title, String description, Integer pageId, Integer userId) {
         this.title = title;
         this.description = description;
         this.pageId = pageId;
         this.userId = userId;
     }
 
-    public BugReport(BugReportDto br) {
+    public BugReportDto(BugReport br) {
         this.id = br.id;
         this.pageId = br.pageId;
         this.title = br.title;
