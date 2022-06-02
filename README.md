@@ -1,6 +1,7 @@
 [![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/summary/new_code?id=MaikelHendrikx1_bugreport)
 [![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-black.svg)](https://sonarcloud.io/summary/new_code?id=MaikelHendrikx1_bugreport)
 [![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-orange.svg)](https://sonarcloud.io/summary/new_code?id=MaikelHendrikx1_bugreport)
+[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=MaikelHendrikx1_bugreport)](https://sonarcloud.io/summary/new_code?id=MaikelHendrikx1_bugreport)
 <hr>
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=MaikelHendrikx1_bugreport&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=MaikelHendrikx1_bugreport)
